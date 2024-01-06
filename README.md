@@ -25,6 +25,7 @@ int main()
 (資料來源:https://www.runoob.com/cprogramming/c-macro-assert.html)
 
 
+
 ---ctype.h---
 範例一 : isalnum()
 "用於檢查所傳的字元是否為字母和數字"
@@ -57,50 +58,50 @@ int var4 = ' ' ;
       printf ( "var4 = |%c| 不是字母數字\n" , var4 ); } 
     
    return ( 0 ); 
-  }
-  (資料來源:https://www.runoob.com/cprogramming/c-function-isalnum.html)
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-isalnum.html)
 
 
-  範例二 :  isalpha()
-  "用於檢查所傳的字元是否為字母"
-  ------
-  #include <stdio.h> 
-  #include <ctype.h> 
+範例二 :  isalpha()
+"用於檢查所傳的字元是否為字母"
+------
+#include <stdio.h> 
+#include <ctype.h> 
   
-  int main () 
-  { 
+int main () 
+{ 
   int var1 = 'd' ; 
   int var2 = '2' ; 
   int var3 = '\t' ; 
   int var4 = ' ' ;
 
-   if ( isalpha ( var1 ) ) { 
+  if ( isalpha ( var1 ) ) { 
       printf ( "var1 = |%c| 是一個字母\n" , var1 ); }
-      else { 
+  else { 
       printf ( "var1 = |%c| 不是一個字母\n" , var1 ); } 
-      if ( isalpha ( var2 ) ) { 
+  if ( isalpha ( var2 ) ) { 
       printf ( "var2 = |%c| 是一個字母\n" , var2 ); } 
-      else { 
+  else { 
       printf ( "var2 = |%c| 不是一個字母\n" , var2 ); } 
-      if ( isalpha ( var3 ) ) { 
+  if ( isalpha ( var3 ) ) { 
       printf ( "var3 = |%c| 是一個字母\n" , var3 ); }
-      else { 
+  else { 
       printf ( "var3 = |%c| 不是一個字母\n" , var3 ); } 
-      if ( isalpha ( var4 ) ) { 
+  if ( isalpha ( var4 ) ) { 
       printf ( "var4 = |%c| 是一個字母\n" , var4 ); } 
-      else { 
+  else { 
       printf ( "var4 = |%c| 不是一個字母\n" , var4 ); } 
       
-   return ( 0 ); 
-   }
-   (資料來源:https://www.runoob.com/cprogramming/c-function-isalpha.html)
+  return ( 0 ); 
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-isalpha.html)
 
 
-   範例三 : iscntrl()
-   "用於檢查所傳的字符是否是控制字符"
-   ------
-   #include <stdio.h>
-   #include <ctype.h>
+範例三 : iscntrl()
+"用於檢查所傳的字符是否是控制字符"
+------
+#include <stdio.h>
+#include <ctype.h>
    int main ()
    {
    int i = 0, j = 0;
@@ -349,8 +350,8 @@ int main ( ) { char c = ' 5 ';
    printf ( " %c 傳入到isxdigit() 函數結果為: %d " , c , isxdigit ( c ) ) ;
  
     return 0 ;
- } 
- (資料來源:https://www.runoob.com/cprogramming/c-function-isxdigit.html)
+} 
+(資料來源:https://www.runoob.com/cprogramming/c-function-isxdigit.html)
  
  
  範例十 : isgraph()
@@ -381,20 +382,84 @@ int main ( ) { char c = ' 5 ';
     else { printf ( " var3 = |%c| 是不可列印的\ n " , var3 ) ;
     } 
     return ( 0 );
-    }
-    (資料來源:https://www.runoob.com/cprogramming/c-function-isgraph.html)
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-isgraph.html)
 
 
 
+---math.h---
+範例一 : acos()
+"用於傳回以弧度表示的x的反餘弦"
+------
+#include <stdio.h> 
+#include <math.h> 
+ 
+#define PI 3.14159265
+
+int main () 
+{ 
+   double x , ret , val ;
+   
+   x = 0.9 ; 
+   val = 180.0 / PI ;   
+
+   ret = acos ( x ) * val ; 
+   printf ( "%lf 的反餘弦是%lf 度" , x , ret ); 
+   
+   return ( 0 );
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-acos.html)
 
 
+範例二 : asin()
+"用於傳回以弧度表示的x的反正弦"
+------
+#include <stdio.h>
+#include <math.h> 
+ 
+#define PI 3.14159265
+
+int main ()
+{ 
+double x , ret , val ; 
+   x = 0.9 ; 
+   val = 180.0 / PI ;
+
+      
+
+   ret = asin ( x ) * val ; 
+   printf ( "%lf 的反正弦是%lf 度" , x , ret ); 
+   
+   return ( 0 ); 
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-asin.html)
 
 
+範例三 : atan()
+"用於傳回以弧度表示的x的反正切"
+------
+#include <stdio.h> 
+#include <math.h> 
+ 
+#define PI 3.14159265
+
+int main () 
+{ 
+double x , ret , val ; 
+   x = 1.0 ; 
+   val = 180.0 / PI ;
+
+ 
+   ret = atan ( x ) * val ; 
+   printf ( "%lf 的反正切是%lf 度" , x , ret ); 
+   
+   return ( 0 ); 
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-atan.html)
 
 
-
-
-
+範例四 : cos()
+"用於傳回弧度角 x 弦"
 
 
 
