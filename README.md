@@ -389,7 +389,7 @@ int main ( ) { char c = ' 5 ';
 
 ---math.h---
 範例一 : acos()
-"用於傳回以弧度表示的x的反餘弦"
+"double acos(double x)傳回以弧度表示的x的反餘弦"
 ------
 #include <stdio.h> 
 #include <math.h> 
@@ -412,7 +412,7 @@ int main ()
 
 
 範例二 : asin()
-"用於傳回以弧度表示的x的反正弦"
+"double asin(double x)傳回以弧度表示的x的反正弦"
 ------
 #include <stdio.h>
 #include <math.h> 
@@ -436,7 +436,7 @@ double x , ret , val ;
 
 
 範例三 : atan()
-"用於傳回以弧度表示的x的反正切"
+"double atan(double x)傳回以弧度表示的x的反正切"
 ------
 #include <stdio.h> 
 #include <math.h> 
@@ -459,9 +459,203 @@ double x , ret , val ;
 
 
 範例四 : cos()
-"用於傳回弧度角 x 弦"
+"double cos(double x)傳回弧度角 x 的餘弦"
+------
+#include <stdio.h>
+#include <math.h>
 
+#define PI 3.14159265
 
+int main ()
+{
+   double x, ret, val;
 
-
+   x = 60.0;
+   val = PI / 180.0;
+   ret = cos( x*val );
+   printf("%lf 的餘弦是 %lf 度\n", x, ret);
    
+   x = 90.0;
+   val = PI / 180.0;
+   ret = cos( x*val );
+   printf("%lf 的餘弦是 %lf 度\n", x, ret);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-cos.html)
+
+
+範例五 : sin()
+"double sin(double x)傳回弧度角 x 的正弦"
+------
+#include <stdio.h>
+#include <math.h>
+
+#define PI 3.14159265
+
+int main ()
+{
+   double x, ret, val;
+
+   x = 45.0;
+   val = PI / 180;
+   ret = sin(x*val);
+   printf("%lf 的正弦是 %lf 度", x, ret);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-sin.html)
+
+
+
+---stdlib.h---
+範例一 : atof()
+"double atof(const char *str) 把參數 str 所指向的字符串轉換為一個浮點數（類型為 double 型）"
+------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+int main()
+{
+   float val;
+   char str[20];
+   
+   strcpy(str, "98993489");
+   val = atof(str);
+   printf("字符串值 = %s, 浮點值 = %f\n", str, val);
+ 
+   strcpy(str, "runoob");
+   val = atof(str);
+   printf("字符串值 = %s, 浮點值 = %f\n", str, val);
+ 
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-atof.html)
+
+
+範例二 : atoi()
+"int atoi(const char *str) 把參數 str 所指向的字符串轉換為一個整數（類型為 int 型）"
+------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+   int val;
+   char str[20];
+   
+   strcpy(str, "98993489");
+   val = atoi(str);
+   printf("字符串值 = %s, 整數值 = %d\n", str, val);
+
+   strcpy(str, "runoob.com");
+   val = atoi(str);
+   printf("字符串值 = %s, 整數值 = %d\n", str, val);
+
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-atoi.html)
+
+
+範例三 : abs()
+"int abs(int x) 傳回整數 x 的絕對值"
+------
+#include <stdio.h>
+#include <stdlib.h>
+
+int main ()
+{
+   int a, b;
+
+   a = abs(5);
+   printf("a 的值 = %d\n", a);
+
+   b = abs(-10);
+   printf("b 的值 = %d\n", b);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-abs.html)
+
+
+範例四 : ldiv()
+"div_t ldiv(long int numer, long int denom) 把 numer（分子）除以 denom（分母），即用於計算兩個長整型數值的商餘數"
+------
+#include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+    // 被除數是11，除數是3
+    long int numer = 11;
+    long int denom = 3;
+
+    ldiv_t result = ldiv(numer, denom);
+
+    printf("商 = %ld\n", result.quot);
+    printf("餘數 = %ld\n", result.rem);
+    
+    return 0;
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-ldiv.html)
+
+
+範例五 : exit()
+"void exit(int status) 用來結束程式，並將 exit 的引數回傳給作業系統"
+------
+#include <stdio.h>
+#include <stdlib.h>
+
+int main ()
+{
+   printf("程序的開頭....\n");
+   
+   printf("退出程序....\n");
+   exit(0);
+
+   printf("程序的结尾....\n");
+
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-exit.html)
+
+
+
+---stdint.h---
+
+
+
+---string.h---
+範例一 : strlen()
+"size_t strlen(const char *str)strlen 來計算字元陣列裡的字串長度，strlen 計算字串長度是不包含結束字元"
+------
+#include <stdio.h>
+#include <string.h>
+
+int main ()
+{
+   char str[50];
+   int len;
+
+   strcpy(str, "This is runoob.com");
+
+   len = strlen(str);
+   printf("|%s| 的長度是 |%d|\n", str, len);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-strlen.html)
+
+
+範例二 : 
+
+
+
+
+
+
+
+
+
+
