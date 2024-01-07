@@ -622,13 +622,6 @@ int main ()
 
 
 
----stdint.h---
-範例一 : 
-""
-------
-
-
-
 ---string.h---
 範例一 : strlen()
 "size_t strlen(const char *str)strlen 來計算字元陣列裡的字串長度，strlen 計算字串長度是不包含結束字元"
