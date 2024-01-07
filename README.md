@@ -623,6 +623,9 @@ int main ()
 
 
 ---stdint.h---
+範例一 : 
+""
+------
 
 
 
@@ -648,14 +651,224 @@ int main ()
 (資料來源:https://www.runoob.com/cprogramming/c-function-strlen.html)
 
 
-範例二 : 
+範例二 : memset()
+"void *memset(void *str, int c, size_t n)複製字元c（一個無符號字元）到參數str所指向的字串的前n個字元"
+------
+#include <stdio.h>
+#include <string.h>
+ 
+int main ()
+{
+   char str[50];
+ 
+   strcpy(str,"This is string.h library function");
+   puts(str);
+ 
+   memset(str,'$',7);
+   puts(str);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-memset.html)
+
+
+範例三 : memcmp()
+"int memcmp(const void *str1, const void *str2, size_t n))把儲存區str1和儲存區str2的前n個位元組做比較"
+------
+#include <stdio.h>
+#include <string.h>
+
+int main ()
+{
+   char str1[15];
+   char str2[15];
+   int ret;
+
+   memcpy(str1, "abcdef", 6);
+   memcpy(str2, "ABCDEF", 6);
+
+   ret = memcmp(str1, str2, 5);
+
+   if(ret > 0)
+   {
+      printf("str2 小於 str1");
+   }
+   else if(ret < 0) 
+   {
+      printf("str1 小於 str2");
+   }
+   else 
+   {
+      printf("str1 等於 str2");
+   }
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-memcmp.html)
+
+
+範例四 : strcpy()
+"char *strcpy(char *dest, const char *src) 把 src 所指向的字串複製到 dest"
+------
+#include <stdio.h>
+#include <string.h>
+ 
+int main()
+{
+   char src[40];
+   char dest[100];
+  
+   memset(dest, '\0', sizeof(dest));
+   strcpy(src, "This is runoob.com");
+   strcpy(dest, src);
+ 
+   printf("最終的目標字串： %s\n", dest);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-strcpy.html)
+
+
+範例五 : strtok()
+"char *strtok(char *str, const char *delim) 分割字串str為一組字串，delim為分隔符號"
+------
+#include <string.h>
+#include <stdio.h>
+ 
+int main () {
+   char str[80] = "This is - www.runoob.com - website";
+   const char s[2] = "-";
+   char *token;
+   
+   /* 獲取第一個子字串 */
+   token = strtok(str, s);
+   
+   /* 繼續獲取其他的子字串 */
+   while( token != NULL ) {
+      printf( "%s\n", token );
+    
+      token = strtok(NULL, s);
+   }
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-strtok.html)
 
 
 
+---time.h---
+範例一 : asctime()
+"char *asctime(const struct tm *timeptr)傳回一個指向字串的指針，它代表了結構struct timeptr的日期和時間"
+------
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+
+int main()
+{
+   struct tm t;
+
+   t.tm_sec    = 10;
+   t.tm_min    = 10;
+   t.tm_hour   = 6;
+   t.tm_mday   = 25;
+   t.tm_mon    = 2;
+   t.tm_year   = 89;
+   t.tm_wday   = 6;
+
+   puts(asctime(&t));
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-asctime.html)
 
 
+範例二 : clock()
+"clock_t Clock(void)回傳程式執行啟動（一般為程式的起始位置），處理器時脈所使用的時間"
+------
+#include <time.h>
+#include <stdio.h>
+ 
+int main()
+{
+   clock_t start_t, end_t;
+   double total_t;
+   int i;
+ 
+   start_t = clock();
+   printf("程式啟動，start_t = %ld\n", start_t);
+    
+   printf("開始一個大迴圈，start_t = %ld\n", start_t);
+   for(i=0; i< 10000000; i++)
+   {
+   }
+   end_t = clock();
+   printf("大迴圈结束，end_t = %ld\n", end_t);
+   
+   total_t = (double)(end_t - start_t) / CLOCKS_PER_SEC;
+   printf("CPU 占用的總時間：%f\n", total_t  );
+   printf("程式退出...\n");
+ 
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-clock.html)
 
 
+範例三 : ctime()
+"har *ctime(const time_t *timer)傳回一個表示當地時間的字串，當地時間是基於參數timer"
+------
+#include <stdio.h>
+#include <time.h>
+ 
+int main ()
+{
+   time_t curtime;
+ 
+   time(&curtime);
+ 
+   printf("當前時間 = %s", ctime(&curtime));
+ 
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-ctime.html)
 
 
+範例四 : time()
+"time_t time(time_t *seconds)傳回自紀元Epoch（1970-01-01 00:00:00 UTC）起經過的時間，以秒為單位。如果seconds不為空，則傳回值也儲存在變數seconds中"
+------
+#include <stdio.h>
+#include <time.h>
+ 
+int main ()
+{
+  time_t seconds;
+ 
+  seconds = time(NULL);
+  printf("自 1970-01-01 起的小時數 = %ld\n", seconds/3600);
+  
+  return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-time.html)
+
+
+範例五 : localtime()
+"struct tm *localtime(const time_t *timer)使用timer 的值來填入tm結構。timer的值被分解為tm結構，並以本地時區表示"
+------
+#include <stdio.h>
+#include <time.h>
+ 
+int main ()
+{
+   time_t rawtime;
+   struct tm *info;
+   char buffer[80];
+ 
+   time( &rawtime );
+ 
+   info = localtime( &rawtime );
+   printf("當前的本地時間和日期：%s", asctime(info));
+ 
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-localtime.html)
 
