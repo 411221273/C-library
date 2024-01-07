@@ -15,10 +15,10 @@ int main()
    assert(a >= 10);
    printf("輸入的整數是： %d\n", a);
     
-   printf("請輸入字符串： ");
+   printf("請輸入字串： ");
    scanf("%s", str);
    assert(str != NULL);
-   printf("輸入的字符串是： %s\n", str);
+   printf("輸入的字串是： %s\n", str);
     
    return(0);
 }
@@ -108,7 +108,7 @@ int main ()
    char str1[] = "all \a about \t programming";
    char str2[] = "Runoob \n tutorials";
   
-   /* 輸出字符串直到控制字符 \a */
+   /* 輸出字串直到控制字符 \a */
    
    while( !iscntrl(str1[i]) ) 
    {
@@ -116,7 +116,7 @@ int main ()
       i++;
    }
   
-   /* 輸出字符串直到控制字符 \n */
+   /* 輸出字串直到控制字符 \n */
    while( !iscntrl(str2[j]) ) 
    {
       putchar(str2[j]);
@@ -259,27 +259,27 @@ int main()
 
    if( ispunct(var1) )
    {
-       printf("var1 = |%c| 是標點符號字符\n", var1 );
+       printf("var1 = |%c| 是標點符號字元\n", var1 );
    }
    else
    {
-       printf("var1 = |%c| 不是標點符號字符\n", var1 );
+       printf("var1 = |%c| 不是標點符號字元\n", var1 );
    }
    if( ispunct(var2) )
    {
-       printf("var2 = |%c| 是標點符號字符\n", var2 );
+       printf("var2 = |%c| 是標點符號字元\n", var2 );
    }
    else
    {
-       printf("var2 = |%c| 不是標點符號字符\n", var2 );
+       printf("var2 = |%c| 不是標點符號字元\n", var2 );
    }
    if( ispunct(var3) )
    {
-       printf("var3 = |%c| 是標點符號字符\n", var3 );
+       printf("var3 = |%c| 是標點符號字元\n", var3 );
    }
    else
    {
-       printf("var3 = |%c| 不是標點符號字符\n", var3 );
+       printf("var3 = |%c| 不是標點符號字元\n", var3 );
    }
    return(0);
 }  
@@ -287,7 +287,7 @@ int main()
 
 
 範例八 : isspace()
-"用於檢查所傳的字符是否是空白字符"
+"用於檢查所傳的字符是否是空白字元"
 ------
 #include <stdio.h>
 #include <ctype.h>
@@ -300,27 +300,27 @@ int main()
 
    if( isspace(var1) )
    {
-       printf("var1 = |%c| 是空白字符\n", var1 );
+       printf("var1 = |%c| 是空白字元\n", var1 );
    }
    else
    {
-       printf("var1 = |%c| 不是空白字符\n", var1 );
+       printf("var1 = |%c| 不是空白字元\n", var1 );
    }
    if( isspace(var2) )
    {
-       printf("var2 = |%c| 是空白字符\n", var2 );
+       printf("var2 = |%c| 是空白字元\n", var2 );
    }
    else
    {
-       printf("var2 = |%c| 不是空白字符\n", var2 );
+       printf("var2 = |%c| 不是空白字元\n", var2 );
    }
    if( isspace(var3) )
    {
-       printf("var3 = |%c| 是空白字符\n", var3 );
+       printf("var3 = |%c| 是空白字元\n", var3 );
    }
    else
    {
-       printf("var3 = |%c| 不是空白字符\n", var3 );
+       printf("var3 = |%c| 不是空白字元\n", var3 );
    }
    
    return(0);
@@ -331,26 +331,26 @@ int main()
 範例九 : isxdigit()
 "用於檢查所傳的字元是否為十六進位數字"
 ------
-#include < ctype.h > 
-#include < stdio.h > 
+#include <ctype.h>
+#include <stdio.h>
  
-int main ( ) { char c = ' 5 ';
-    int result ;
+int main() {
+   char c = '5';
+   int result;
  
-    // 傳入字符  
-     
-   result = isxdigit ( c ) ; // result 回傳非0
-   printf ( " %c 傳入到isxdigit() 函數結果為: %d " , c , isxdigit ( c ) ) ;
-    printf ( " \ n " ) ;   // 換行
-   c = ' M ';
+   // 傳入字符
+   result = isxdigit(c); // result 傳回非 0
+   printf("%c 傳入到 isxdigit() 函數结果為: %d", c, isxdigit(c));
+   printf("\n");  // 換行
+   c = 'M';
  
-    // 非十六進位數為參數
-   result = isxdigit ( c ) ; // result 為0
+   // 非十六進制數作為参數
+   result = isxdigit(c); // result 為 0
  
-   printf ( " %c 傳入到isxdigit() 函數結果為: %d " , c , isxdigit ( c ) ) ;
+   printf("%c 傳入到 isxdigit() 函數结果為: %d", c, isxdigit(c));
  
-    return 0 ;
-} 
+   return 0;
+}
 (資料來源:https://www.runoob.com/cprogramming/c-function-isxdigit.html)
  
  
@@ -718,7 +718,7 @@ int main()
 
    output = div(27, 3);
    printf("(27/ 3) 的商 = %d\n", output.quot);
-   printf("(27/3) 的 = %d\n", output.rem);
+   printf("(27/3) 的餘數 = %d\n", output.rem);
 
    return(0);
 }
