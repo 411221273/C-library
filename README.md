@@ -507,6 +507,107 @@ int main ()
 (資料來源:https://www.runoob.com/cprogramming/c-function-sin.html)
 
 
+範例六 : cosh()
+"double cosh(double x)傳回 x 的雙曲餘弦"
+------
+#include <stdio.h>
+#include <math.h>
+
+int main ()
+{
+   double x;
+
+   x = 0.5;
+   printf("%lf 的雙曲餘弦是 %lf\n", x, cosh(x));
+
+   x = 1.0;
+   printf("%lf 的雙曲餘弦是 %lf\n", x, cosh(x));
+
+   x = 1.5;
+   printf("%lf 的雙曲餘弦是 %lf\n", x, cosh(x));
+
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-cosh.html)
+
+
+範例七 : sinh()
+"double sinh(double x)傳回x的雙曲正弦"
+------
+#include <stdio.h>
+#include <math.h>
+
+int main ()
+{
+   double x, ret;
+   x = 0.5;
+
+   ret = sinh(x);
+   printf("%lf 的雙曲正弦是 %lf 度", x, ret);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-sinh.html)
+
+
+範例八 : tanh()
+"double tanh(double x)傳回 x 的雙曲正切"
+------
+#include <stdio.h>
+#include <math.h>
+
+int main ()
+{
+   double x, ret;
+   x = 0.5;
+
+   ret = tanh(x);
+   printf("%lf 的雙曲正切是 %lf 度", x, ret);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-tanh.html)
+
+
+範例九 : exp()
+"double exp(double x)傳回e的x次方的值"
+------
+#include <stdio.h>
+#include <math.h>
+
+int main ()
+{
+   double x = 0;
+  
+   printf("e 的 %lf 次方是 %lf\n", x, exp(x));
+   printf("e 的 %lf 次方是 %lf\n", x+1, exp(x+1));
+   printf("e 的 %lf 次方是 %lf\n", x+2, exp(x+2));
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-exp.html)
+
+
+範例十 : log()
+"double log(double x)傳回x的自然對數（基數為e 的對數）"
+------
+#include <stdio.h>
+#include <math.h>
+
+int main ()
+{
+   double x, ret;
+   x = 2.7;
+
+   /* 計算 log(2.7) */
+   ret = log(x);
+   printf("log(%lf) = %lf", x, ret);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-log.html)
+
+
 
 ---stdlib.h---
 範例一 : atof()
@@ -601,7 +702,31 @@ int main() {
 (資料來源:https://www.runoob.com/cprogramming/c-function-ldiv.html)
 
 
-範例五 : exit()
+範例五 : div()
+"div_t div(int numer, int denom) 把 numer（分子）除以 denom（分母）"
+------
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   div_t output;
+
+   output = div(27, 4);
+   printf("(27/ 4) 的商  = %d\n", output.quot);
+   printf("(27/4) 的餘數 = %d\n", output.rem);
+
+   output = div(27, 3);
+   printf("(27/ 3) 的商 = %d\n", output.quot);
+   printf("(27/3) 的 = %d\n", output.rem);
+
+   return(0);
+}
+
+(資料來源:https://www.runoob.com/cprogramming/c-function-div.html)
+
+
+範例六 : exit()
 "void exit(int status) 用來結束程式，並將 exit 的引數回傳給作業系統"
 ------
 #include <stdio.h>
@@ -619,6 +744,63 @@ int main ()
    return(0);
 }
 (資料來源:https://www.runoob.com/cprogramming/c-function-exit.html)
+
+
+範例七 : rand()
+"int rand(void)傳回一個範圍在0 到RAND_MAX之間的隨機數"
+------
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+ 
+int main()
+{
+   int i, n;
+   time_t t;
+   
+   n = 5;
+   
+   /* 初始化隨機數產生器 */
+   srand((unsigned) time(&t));
+ 
+   /* 輸出 0 到 49 之間的 5 個隨機數 */
+   for( i = 0 ; i < n ; i++ ) {
+      printf("%d\n", rand() % 50);
+   }
+   
+  return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-rand.html)
+
+
+範例八 : srand()
+"void srand(unsigned int seed)種子函式rand使用的隨機數產生器"
+------
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+ 
+int main()
+{
+   int i, n;
+   time_t t;
+   
+   n = 5;
+   
+   /* 初始化隨機數產生器 */
+   srand((unsigned) time(&t));
+ 
+   /* 輸出 0 到 50 之間的 5 個隨機數 */
+   for( i = 0 ; i < n ; i++ ) {
+      printf("%d\n", rand() % 50);
+   }
+   
+  return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-srand.html)
+
+
+
 
 
 
@@ -866,8 +1048,121 @@ int main ()
 (資料來源:https://www.runoob.com/cprogramming/c-function-localtime.html)
 
 
+範例六 : difftime()
+"double difftime(time_t time1, time_t time2)傳回time1和time2之間相差的秒數(time1 - time2)。這兩個時間是在日曆時間中指定的，表示了自紀元Epoch（協調世界時UTC：1970-01-01 00:00:00）起經過的時間"
+------
+#include <stdio.h>
+#include <time.h>
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+ 
+int main ()
+{
+   time_t start_t, end_t;
+   double diff_t;
+ 
+   printf("程式啟動...\n");
+   time(&start_t);
+ 
+   printf("休眠 5 秒...\n");
+   sleep(5);
+ 
+   time(&end_t);
+   diff_t = difftime(end_t, start_t);
+ 
+   printf("執行時間 = %f\n", diff_t);
+   printf("程式退出...\n");
+ 
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-difftime.html)
 
 
+範例七 : gmtime()
+"struct tm *gmtime(const time_t *timer)使用timer的值來填入tm結構，並以協調世界時（UTC）也稱為格林尼治標準時間（GMT）表示"
+------
+#include <stdio.h>
+#include <time.h>
+ 
+#define BST (+1)
+#define CCT (+8)
+ 
+int main ()
+{
+ 
+   time_t rawtime;
+   struct tm *info;
+ 
+   time(&rawtime);
+   /* 獲取 GMT 時間 */
+   info = gmtime(&rawtime );
+   
+   printf("當前的世界時鐘：\n");
+   printf("倫敦：%2d:%02d\n", (info->tm_hour+BST)%24, info->tm_min);
+   printf("中國：%2d:%02d\n", (info->tm_hour+CCT)%24, info->tm_min);
+ 
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-gmtime.html)
+
+
+範例八 : mktime()
+"time_t mktime(struct tm *timeptr)把timeptr所指向的轉換轉換為自 1970 年 1 月 1 日以來持續時間的秒數，發生錯誤時傳回-1"
+------
+#include <stdio.h>
+#include <time.h>
+
+int main () {
+    int ret;
+    struct tm info;
+    char buffer[80];
+
+    info.tm_year = 2021 - 1900;
+    info.tm_mon = 7 - 1;
+    info.tm_mday = 4;
+    info.tm_hour = 0;
+    info.tm_min = 0;
+    info.tm_sec = 1;
+    info.tm_isdst = -1;
+
+    ret = mktime(&info);
+    if( ret == -1 ) {
+        printf("Error: unable to make time using mktime\n");
+    } else {
+        strftime(buffer, sizeof(buffer), "%c", &info );
+        printf(buffer);
+    }
+
+    return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-mktime.html)
+
+
+範例九 : strftime()
+"size_t strftime(char *str, size_t maxsize, const char *format, const struct tm *timeptr)根據format中定義的格式化規則，格式化結構timeptr表示的時間，並把它儲存在str中"
+------
+#include <stdio.h>
+#include <time.h>
+ 
+int main ()
+{
+   time_t rawtime;
+   struct tm *info;
+   char buffer[80];
+ 
+   time( &rawtime );
+ 
+   info = localtime( &rawtime );
+ 
+   strftime(buffer, 80, "%Y-%m-%d %H:%M:%S", info);
+   printf("格式化的日期 & 時間 : |%s|\n", buffer );
+  
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-strftime.html)
 
 
 
