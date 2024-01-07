@@ -800,7 +800,57 @@ int main()
 (資料來源:https://www.runoob.com/cprogramming/c-function-srand.html)
 
 
+範例九 : wctomb()
+"int wctomb(char *str, wchar_t wchar)把寬字元wchar轉換成它的多位元組表示形式，並將其儲存在str引用的字元讀寫的起始位置"
+------
+#include <stdio.h>
+#include <stdlib.h>
 
+int main()
+{
+   int i;
+   wchar_t wc = L'a';
+   char *pmbnull = NULL;
+   char *pmb = (char *)malloc(sizeof( char ));
+
+   printf("要轉換的寬字元：\n");
+   i = wctomb( pmb, wc );
+   printf("被轉換的字元：%u\n", i);
+   printf("多位元組字元：%.1s\n", pmb);
+ 
+   printf("當要轉換的字元為 NULL 時嘗試轉換：\n");
+   i = wctomb( pmbnull, wc );
+   printf("被轉換的字元：%u\n", i);
+   /* 不會輸出任何值 */
+   printf("多位元組字元：%.1s\n", pmbnull);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-wctomb.html)
+
+
+範例十 : mbtowc()
+"int mbtowc(whcar_t *pwc, const char *str, size_t n)把一個多位元組序列轉換為一個寬字元"
+------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+   char *str = "這裡是 runoob.com";
+   wchar_t mb[100];
+   int len;
+   
+   len = mblen(NULL, MB_CUR_MAX); 
+
+   mbtowc(mb, str, len*strlen(str) );
+   
+   wprintf(L"%ls \n", mb );   
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-mbtowc.html)
 
 
 
@@ -928,6 +978,129 @@ int main () {
    return(0);
 }
 (資料來源:https://www.runoob.com/cprogramming/c-function-strtok.html)
+
+
+範例六 : memchr()
+"void *memchr(const void *str, int c, size_t n)在參數str所指向的字串的前n個位元組中搜尋第一次出現字元c（一個無符號字元）的位置"
+------
+#include <stdio.h>
+#include <string.h>
+ 
+int main ()
+{
+   const char str[] = "http://www.runoob.com";
+   const char ch = '.';
+   char *ret;
+ 
+   ret = (char*)memchr(str, ch, strlen(str));
+ 
+   printf("|%c| 之後的字串是 - |%s|\n", ch, ret);
+ 
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-memchr.html)
+
+
+範例七 : strcat()
+"char *strcat(char *dest, const char *src)把src所指向的字串追加到dest所指向的字串的結尾"
+------
+#include <stdio.h>
+#include <string.h>
+ 
+int main ()
+{
+   char src[50], dest[50];
+ 
+   strcpy(src,  "This is source");
+   strcpy(dest, "This is destination");
+ 
+   strcat(dest, src);
+ 
+   printf("最终的目標字串： |%s|", dest);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-strcat.html)
+
+
+範例八 : strcmp()
+"int strcmp(const char *str1, const char *str2)把str1所指向的字串和str2所指向的字串做比較"
+------
+#include <stdio.h>
+#include <string.h>
+ 
+int main ()
+{
+   char str1[15];
+   char str2[15];
+   int ret;
+ 
+ 
+   strcpy(str1, "abcdef");
+   strcpy(str2, "ABCDEF");
+ 
+   ret = strcmp(str1, str2);
+ 
+   if(ret < 0)
+   {
+      printf("str1 小於 str2");
+   }
+   else if(ret > 0) 
+   {
+      printf("str1 大於 str2");
+   }
+   else 
+   {
+      printf("str1 等於 str2");
+   }
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-strcmp.html)
+
+
+範例九 : strerror()
+"char *strerror(int errnum)從內部陣列中搜尋錯誤號errnum，並傳回一個指向錯誤訊息字串的指標。strerror產生的錯誤字串取決於開發平台和編譯器"
+------
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
+
+int main ()
+{
+   FILE *fp;
+
+   fp = fopen("file.txt","r");
+   if( fp == NULL ) 
+   {
+      printf("Error: %s\n", strerror(errno));
+   }
+   
+  return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-strerror.html)
+
+
+範例十 : strrchr()
+"char *strrchr(const char *str, int c)在參數str所指向的字串中搜尋最後一次出現字元c（一個無符號字元）的位置"
+------
+#include <stdio.h>
+#include <string.h>
+ 
+int main ()
+{
+   int len;
+   const char str[] = "https://www.runoob.com";
+   const char ch = '.';
+   char *ret;
+ 
+   ret = strrchr(str, ch);
+ 
+   printf("|%c| 之後的字串是 - |%s|\n", ch, ret);
+   
+   return(0);
+}
+(資料來源:https://www.runoob.com/cprogramming/c-function-strrchr.html)
 
 
 
@@ -1163,43 +1336,5 @@ int main ()
    return(0);
 }
 (資料來源:https://www.runoob.com/cprogramming/c-function-strftime.html)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
